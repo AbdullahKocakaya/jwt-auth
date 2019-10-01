@@ -6,6 +6,7 @@ import { buildSchema } from "type-graphql";
 import { UserResolver } from "./UserResolver";
 import { createConnection } from "typeorm";
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import { verify } from 'jsonwebtoken';
 import { User } from './entity/User';
 import { createAccessToken, createRefreshToken } from './auth';
@@ -15,6 +16,13 @@ const port = 4000;
 
 (async () => {
     const app = express();
+
+    app.use(
+        cors({
+            origin: "http://localhost:3000",
+            credentials: true
+        })
+    );
 
     app.use(cookieParser());
 
@@ -59,7 +67,7 @@ const port = 4000;
         context: ( ({ req, res }) => ({ req, res }) )
     });
 
-    apolloServer.applyMiddleware({ app });
+    apolloServer.applyMiddleware({ app, cors: false });
 
     app.listen(port, () => {
         console.log("express server started port on : " + port);

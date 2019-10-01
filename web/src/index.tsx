@@ -7,7 +7,8 @@ import { Routes } from './Routes';
 const serverPort = 4000;
 
 const client = new ApolloClient({
-    uri: `http://localhost:${serverPort}/graphql`
+    uri: `http://localhost:${serverPort}/graphql`,
+    credentials: 'include'
 })
 
 ReactDOM.render(
