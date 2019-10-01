@@ -11,6 +11,8 @@ import { User } from './entity/User';
 import { createAccessToken, createRefreshToken } from './auth';
 import { sendRefreshToken } from './sendRefreshToken';
 
+const port = 4000;
+
 (async () => {
     const app = express();
 
@@ -59,8 +61,8 @@ import { sendRefreshToken } from './sendRefreshToken';
 
     apolloServer.applyMiddleware({ app });
 
-    app.listen(4000, () => {
-        console.log("express server started");
+    app.listen(port, () => {
+        console.log("express server started port on : " + port);
     });
 
 }) ();
