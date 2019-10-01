@@ -6,6 +6,8 @@ interface Props {
 
 export const Home: React.FC<Props> = () => {
     return (
-        <div>index</div>
+        <div>
+            home page
+        </div>
     );
 }
