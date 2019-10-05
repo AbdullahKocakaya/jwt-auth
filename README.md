@@ -1,13 +1,10 @@
 # jwt-auth
 jwt authentication full stack example
 
-server
-  yarn start
+server => yarn start
   
-  graphql playground
-    http://localhost:4000/graphql
+graphql playground => http://localhost:4000/graphql
   
-web
-  yarn start
-  to generate graphql queries and mutations with
-    yarn gen
+web => yarn start
+  
+to generate graphql queries and mutations with => yarn gen
